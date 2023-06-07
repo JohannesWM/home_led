@@ -1,14 +1,19 @@
+from flask import Flask
+import subprocess
 from app import app
-import threading
-from leds import leds_active
 
 
-def start_led_control():
-    led_thread = threading.Thread(target=leds_active)
-    led_thread.daemon = True
-    led_thread.start()
+@app.route('/')
+def hello():
+    return "Hello, World!"
 
 
 if __name__ == '__main__':
-    start_led_control()
+    # Start the LED control script as a separate process
+    led_process = subprocess.Popen(['python', 'led_control.py'])
+
+    # Start the Flask application
     app.run(debug=True, port=8000, host="0.0.0.0")
+
+    # Terminate the LED control process when the Flask application exits
+    led_process.terminate()
