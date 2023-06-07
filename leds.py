@@ -56,4 +56,6 @@ def rainbow_cycle(wait):
 
 def leds_active():
     while True:
+        print("active")
         rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
+        time.sleep(1.0)
