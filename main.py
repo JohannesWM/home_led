@@ -10,7 +10,7 @@ def hello():
 
 if __name__ == '__main__':
     # Start the LED control script as a separate process
-    led_process = subprocess.Popen(['python', 'led_control.py'])
+    led_process = subprocess.Popen(['python', 'leds.py'])
 
     # Start the Flask application
     app.run(debug=True, port=8000, host="0.0.0.0")
