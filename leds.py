@@ -56,4 +56,3 @@ def rainbow_cycle(wait):
 
 while True:
     rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
-    time.sleep(1.0)
