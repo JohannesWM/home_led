@@ -1,11 +1,12 @@
 from app import app
-import multiprocessing
+import threading
 from leds import leds_active
 
 
 def start_led_control():
-    process = multiprocessing.Process(target=leds_active)
-    process.start()
+    led_thread = threading.Thread(target=leds_active)
+    led_thread.daemon = True
+    led_thread.start()
 
 
 if __name__ == '__main__':
