@@ -3,11 +3,6 @@ import subprocess
 from app import app
 
 
-@app.route('/')
-def hello():
-    return "Hello, World!"
-
-
 if __name__ == '__main__':
     # Start the LED control script as a separate process
     led_process = subprocess.Popen(['python', 'leds.py'])
