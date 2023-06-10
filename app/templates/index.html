@@ -44,6 +44,13 @@
 
 <body>
 
+  <script>
+    window.onload = function() {
+      var toggleValueFR = "{{toggleValue}}"
+      sendData(toggleValueFR);
+    };
+  </script>
+
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
@@ -62,7 +69,7 @@
               <li><a href="#">Color</a></li>
             </ul>
           </li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="#about">Choose Random</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -75,51 +82,52 @@
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
       <div class="row justify-content-center">
         <div class="col-xl-7 col-lg-9 text-center">
-          <h1>Johannes Led Strip</h1>
+          <h1>Johannes LED Strip</h1>
           <h2>Individually Addressable Ledstrip Controller Page</h2>
         </div>
       </div>
 
       <div class="row icon-boxes">
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-toggle-off"></i></div>
-            <h4 class="title"><a href="">Turn OFF</a></h4>
+          <div class="icon-box" onclick="sendData('toggleOFF')">
+            <div class="icon"><i id="toggleOFF" class="bi bi-toggle-off"></i></div>
+            <h4 class="title"><a>Turn OFF</a></h4>
             <p class="description">Toggle LEDs to turn off‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎
               ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ </p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-toggle-off"></i></div>
-            <h4 class="title"><a href="">Rainbow Wheel</a></h4>
-            <p class="description">Rainbow led mode however every led is a slightly differnt from the previous one
+          <div class="icon-box" onclick="sendData('toggleRainbow')">
+            <div class="icon"><i id="toggleRainbow" class="bi bi-toggle-off"></i></div>
+            <h4 class="title"><a >Rainbow Wheel</a></h4>
+            <p class="description">Rainbow LED mode however every LED is a slightly differnt from the previous one
             creating an 2 dimensional rainbow effect</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="400">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-toggle-on"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+          <div class="icon-box" onclick="sendData('toggleRacer')">
+            <div class="icon"><i id="toggleRacer" class="bi bi-toggle-off"></i></div>
+            <h4 class="title"><a>Light Racer</a></h4>
+            <p class="description">A constant line of light that runs from one side of the strip towards the other</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-toggle-off"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
+          <div class="icon-box" onclick="sendData('toggleSpeedRacer')">
+            <div class="icon"><i id="toggleSpeedRacer" class="bi bi-toggle-off"></i></div>
+            <h4 class="title"><a>Speed Racer</a></h4>
             <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
           </div>
         </div>
 
         <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="500">
-          <div class="icon-box">
-            <div class="icon"><i class="bi bi-toggle-off"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+          <div class="icon-box" onclick="sendData('toggleTimer60')">
+            <div class="icon"><i id="toggleTimer60" class="bi bi-toggle-off"></i></div>
+            <h4 class="title"><a>1h Timer</a></h4>
+            <p class="description">Light strip will slowly continue to light up until it reaches the end and starts
+            to blink</p>
           </div>
         </div>
 
@@ -180,6 +188,8 @@
   <script src="static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="static/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="static/vendor/php-email-form/validate.js"></script>
+  <script src="static/js/toggle_LEDs.js"></script>
+  <script src="static/js/JQ.js"></script>
 
   <!-- Template Main JS File -->
   <script src="static/js/main.js"></script>

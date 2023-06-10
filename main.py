@@ -5,10 +5,10 @@ from app import app
 
 if __name__ == '__main__':
     # Start the LED control script as a separate process
-    led_process = subprocess.Popen(['python', 'leds.py'])
+    # led_process = subprocess.Popen(['python', 'leds.py'])
 
     # Start the Flask application
-    app.run(debug=False, port=8000, host="0.0.0.0")
+    app.run(debug=True, port=8000, host="0.0.0.0")
 
     # Terminate the LED control process when the Flask application exits
-    led_process.terminate()
+    # led_process.terminate()

@@ -1,6 +1,9 @@
 from flask import render_template, request, session, redirect, url_for
 from app import app
 from flask_mail import Mail, Message
+import modeFunctions as mf
+
+
 
 mail = Mail(app)
 # instantiate the mail class
@@ -18,4 +21,13 @@ mail = Mail(app)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', toggleValue=mf.get_current_mode(), totalmodes=5, status=1, daysActive="")
+
+
+@app.route('/mode_switch', methods=["GET", "POST"])
+def mode_switch():
+
+    data = request.form.get("mode")
+    mf.push_new_mode(data)
+
+    return data
