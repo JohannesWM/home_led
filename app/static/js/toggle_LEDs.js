@@ -15,6 +15,8 @@ function sendData(mode_id) {
 
       var toggle_name = modes_array[i];
 
+
+
       if (toggle_name == mode_id) {
       var toggleIcon = document.getElementById(toggle_name);
           if (toggleIcon.classList.contains("bi-toggle-off")) {
