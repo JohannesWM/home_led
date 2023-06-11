@@ -46,13 +46,6 @@ def wheel(pos):
     return (r, g, b) if ORDER in (neopixel.RGB, neopixel.GRB) else (r, g, b, 0)
 
 
-def rainbow_check():
-    if modeFunctions.get_current_mode() != "toggleRainbow":
-        return True
-    else:
-        return False
-
-
 def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
@@ -64,24 +57,21 @@ def rainbow_cycle(wait):
 
 while True:
 
-    rainbow_cycle(0.01)
-    #
-    # if modeFunctions.get_current_mode() == "toggleOFF":
-    #     pixels.fill((0, 0, 0))
-    #     pixels.show()
-    # elif modeFunctions.get_current_mode() == "toggleRainbow":
-    #     rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
-    #     print("toggleRainbow")
-    #     # time.sleep(1)
-    # elif modeFunctions.get_current_mode() == "toggleRacer":
-    #     print("toggleRacer")
-    #     time.sleep(1)
-    # elif modeFunctions.get_current_mode() == "toggleTimer60":
-    #     print("toggleTimer60")
-    #     time.sleep(1)
-    # elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
-    #     print("toggleSpeedRacer")
-    #     time.sleep(1)
-    # else:
-    #     print("ERROR")
+    if modeFunctions.get_current_mode() == "toggleOFF":
+        pixels.fill((0, 0, 0))
+        pixels.show()
+    elif modeFunctions.get_current_mode() == "toggleRainbow":
+        rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
+        print("toggleRainbow")
+    elif modeFunctions.get_current_mode() == "toggleRacer":
+        print("toggleRacer")
+        time.sleep(1)
+    elif modeFunctions.get_current_mode() == "toggleTimer60":
+        print("toggleTimer60")
+        time.sleep(1)
+    elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
+        print("toggleSpeedRacer")
+        time.sleep(1)
+    else:
+        print("ERROR")
 
