@@ -8,7 +8,7 @@ if __name__ == '__main__':
     led_process = subprocess.Popen(['python', 'leds.py'])
 
     # Start the Flask application
-    # app.run(debug=True, port=8000, host="0.0.0.0")
+    app.run(debug=True, port=8000, host="0.0.0.0")
 
     # Terminate the LED control process when the Flask application exits
     led_process.terminate()
