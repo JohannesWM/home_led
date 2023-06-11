@@ -5,6 +5,7 @@
 import time
 import board
 import neopixel
+import modeFunctions
 
 
 # Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
@@ -55,5 +56,18 @@ def rainbow_cycle(wait):
 
 
 while True:
-    rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
-    time.sleep(1.0)
+
+    if modeFunctions.get_current_mode() == "toggleOFF":
+        print("toggleOFF")
+    elif modeFunctions.get_current_mode() == "toggleRainbow":
+        rainbow_cycle(0.001)  # rainbow cycle with 1ms delay per step
+        print("toggleRainbow")
+    elif modeFunctions.get_current_mode() == "toggleRacer":
+        print("toggleRacer")
+    elif modeFunctions.get_current_mode() == "toggleTimer60":
+        print("toggleTimer60")
+    elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
+        print("toggleSpeedRacer")
+    else:
+        print("ERROR")
+
