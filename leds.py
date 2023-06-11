@@ -56,8 +56,6 @@ def rainbow_check():
 def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
-            if rainbow_check() is True:
-                break
             pixel_index = (i * 256 // num_pixels) + j
             pixels[i] = wheel(pixel_index & 255)
         pixels.show()
