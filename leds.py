@@ -66,7 +66,7 @@ while True:
         pixels.fill((0, 0, 0))
         pixels.show()
     elif modeFunctions.get_current_mode() == "toggleRainbow":
-        rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
+        rainbow_cycle(0.1)  # rainbow cycle with 1ms delay per step
         print("toggleRainbow")
     elif modeFunctions.get_current_mode() == "toggleRacer":
         print("toggleRacer")
