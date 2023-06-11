@@ -50,7 +50,7 @@ def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
 
-            if modeFunctions.get_current_mode() is not "toggleRainbow":
+            if modeFunctions.get_current_mode() != "toggleRainbow":
                 break
             else:
                 pass
