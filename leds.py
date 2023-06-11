@@ -63,20 +63,8 @@ def rainbow_cycle(wait):
 
 
 def Racer(color=purple):
-    front = 0
-    length = 0
-
-    for i in range(num_pixels):
-        if length < 50:
-            length += 1
-            pixels[i] = color
-        elif length >= 50:
-            front = i
-            pixels[front - 49] = (0, 0, 0)
-        else:
-            print("error")
-        pixels.show()
-        time.sleep(0.01)
+    pixels.fill(color)
+    pixels.show()
 
 
 
