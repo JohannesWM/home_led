@@ -64,22 +64,24 @@ def rainbow_cycle(wait):
 
 while True:
 
-    if modeFunctions.get_current_mode() == "toggleOFF":
-        pixels.fill((0, 0, 0))
-        pixels.show()
-    elif modeFunctions.get_current_mode() == "toggleRainbow":
-        rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
-        print("toggleRainbow")
-        # time.sleep(1)
-    elif modeFunctions.get_current_mode() == "toggleRacer":
-        print("toggleRacer")
-        time.sleep(1)
-    elif modeFunctions.get_current_mode() == "toggleTimer60":
-        print("toggleTimer60")
-        time.sleep(1)
-    elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
-        print("toggleSpeedRacer")
-        time.sleep(1)
-    else:
-        print("ERROR")
+    rainbow_cycle(0.01)
+    #
+    # if modeFunctions.get_current_mode() == "toggleOFF":
+    #     pixels.fill((0, 0, 0))
+    #     pixels.show()
+    # elif modeFunctions.get_current_mode() == "toggleRainbow":
+    #     rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
+    #     print("toggleRainbow")
+    #     # time.sleep(1)
+    # elif modeFunctions.get_current_mode() == "toggleRacer":
+    #     print("toggleRacer")
+    #     time.sleep(1)
+    # elif modeFunctions.get_current_mode() == "toggleTimer60":
+    #     print("toggleTimer60")
+    #     time.sleep(1)
+    # elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
+    #     print("toggleSpeedRacer")
+    #     time.sleep(1)
+    # else:
+    #     print("ERROR")
 
