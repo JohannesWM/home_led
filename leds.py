@@ -102,7 +102,7 @@ while True:
     elif modeFunctions.get_current_mode() == "toggleRainbow":
         rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
     elif modeFunctions.get_current_mode() == "toggleRacer":
-        Racer()
+        Racer(purple)
     elif modeFunctions.get_current_mode() == "toggleTimer60":
         print("toggleTimer60")
         time.sleep(1)
