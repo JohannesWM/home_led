@@ -24,6 +24,7 @@ pixels = neopixel.NeoPixel(
     pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER
 )
 
+purple = (160, 32, 240)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -61,6 +62,25 @@ def rainbow_cycle(wait):
         time.sleep(wait)
 
 
+def Racer(color=purple):
+    front = 0
+    length = 0
+
+    for i in range(num_pixels):
+        if length < 50:
+            length += 1
+            pixels[i] = color
+        elif length >= 50:
+            front = i
+            pixels[front - 49] = (0, 0, 0)
+        else:
+            print("error")
+        pixels.show()
+        time.sleep(0.01)
+
+
+
+
 # Get the current process ID
 pid = psutil.Process()
 
@@ -81,7 +101,6 @@ while True:
         pixels.show()
     elif modeFunctions.get_current_mode() == "toggleRainbow":
         rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
-        print("toggleRainbow")
     elif modeFunctions.get_current_mode() == "toggleRacer":
         print("toggleRacer")
         time.sleep(1)
