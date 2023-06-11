@@ -14,5 +14,6 @@ def mode_switch():
 
     data = request.form.get("mode")
     mf.push_new_mode(data)
+    print(mf.get_current_mode())
 
     return data
