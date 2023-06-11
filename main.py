@@ -19,9 +19,5 @@ if __name__ == '__main__':
     # Start the Flask application
     app.run(debug=True, port=8000, host="0.0.0.0")
 
-    print("EMERGENCY!!!!!!! APP HAS SHUTDOWN")
-
-    time.sleep(30)
-
     # Terminate the LED control process when the Flask application exits
     led_process.terminate()
