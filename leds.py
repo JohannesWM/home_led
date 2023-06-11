@@ -46,9 +46,18 @@ def wheel(pos):
     return (r, g, b) if ORDER in (neopixel.RGB, neopixel.GRB) else (r, g, b, 0)
 
 
+def rainbow_check():
+    if modeFunctions.get_current_mode() != "toggleRainbow":
+        return True
+    else:
+        return False
+
+
 def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
+            if rainbow_check():
+                break
             pixel_index = (i * 256 // num_pixels) + j
             pixels[i] = wheel(pixel_index & 255)
         pixels.show()
