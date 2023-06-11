@@ -6,6 +6,7 @@ import time
 import board
 import neopixel
 import modeFunctions
+import psutil
 
 
 # Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
@@ -60,7 +61,20 @@ def rainbow_cycle(wait):
         time.sleep(wait)
 
 
+# Get the current process ID
+pid = psutil.Process()
+
+
 while True:
+
+    # Get the memory information
+    memory_info = pid.memory_info()
+
+    # Access different memory attributes
+    memory_usage = memory_info.rss  # Current resident set size in bytes
+    memory_usage_mb = memory_usage / (1024 * 1024)  # Convert to megabytes
+
+    print(f"Current memory usage: {memory_usage_mb:.2f} MB")
 
     if modeFunctions.get_current_mode() == "toggleOFF":
         pixels.fill((0, 0, 0))
