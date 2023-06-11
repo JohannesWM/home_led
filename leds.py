@@ -13,7 +13,7 @@ import modeFunctions
 pixel_pin = board.D18
 
 # The number of NeoPixels
-num_pixels = 98
+num_pixels = 100
 
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
 # For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
@@ -58,8 +58,8 @@ def rainbow_cycle(wait):
 while True:
 
     if modeFunctions.get_current_mode() == "toggleOFF":
-        print("toggleOFF")
-        time.sleep(1)
+        pixels.fill(0, 0, 0)
+        pixels.show()
     elif modeFunctions.get_current_mode() == "toggleRainbow":
         rainbow_cycle(0.01)  # rainbow cycle with 1ms delay per step
         print("toggleRainbow")
