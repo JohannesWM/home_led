@@ -1,23 +1,22 @@
 import time
-
-from flask import Flask
-import subprocess
+import leds
 from app import app
 import psutil
+import multiprocessing as mp
 
 
-# Get the current process ID
-pid = psutil.Process()
-
-
+ledFunc = mp.Process(target=leds.lights_server_link)
 
 if __name__ == '__main__':
-    # Start the LED control script as a separate process
 
-    led_process = subprocess.Popen(['python', 'leds.py'])
+    ledFunc.start()
 
     # Start the Flask application
-    app.run(debug=True, port=8000, host="0.0.0.0")
+    app.run(debug=False, port=8000, host="0.0.0.0")
 
-    # Terminate the LED control process when the Flask application exits
-    led_process.terminate()
+    # Keyboard interrupt occurred, terminate the process
+    ledFunc.terminate()
+
+
+
+

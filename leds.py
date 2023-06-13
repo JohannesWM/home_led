@@ -23,7 +23,6 @@ pixels = neopixel.NeoPixel(
     pixel_pin, num_pixels, brightness=0.2, auto_write=False, pixel_order=ORDER
 )
 
-purple = (160, 32, 240)
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
@@ -61,24 +60,26 @@ def rainbow_cycle(wait):
         time.sleep(wait)
 
 
-def Racer(color=purple):
-    pixels.fill(color)
-    pixels.show()
+def lights_server_link():
+    while True:
+        try:
+            if modeFunctions.get_current_mode() == "toggleOFF":
+                print("toggleOFF")
+                time.sleep(1)
+            elif modeFunctions.get_current_mode() == "toggleRainbow":
+                print("toggleRainbow")
+                time.sleep(1)
+            elif modeFunctions.get_current_mode() == "toggleRacer":
+                print("toggleRacer")
+                time.sleep(1)
+            elif modeFunctions.get_current_mode() == "toggleTimer60":
+                print("toggleTimer60")
+                time.sleep(1)
+            elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
+                print("toggleSpeedRacer")
+                time.sleep(1)
+            else:
+                print("ERROR")
 
-
-while True:
-    if modeFunctions.get_current_mode() == "toggleOFF":
-        pass
-    elif modeFunctions.get_current_mode() == "toggleRacer":
-        pass
-    elif modeFunctions.get_current_mode() == "toggleRacer":
-        rainbow_cycle(0.01)
-    elif modeFunctions.get_current_mode() == "toggleTimer60":
-        print("toggleTimer60")
-        time.sleep(1)
-    elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
-        print("toggleSpeedRacer")
-        time.sleep(1)
-    else:
-        print("ERROR")
-
+        except KeyboardInterrupt:
+            break
