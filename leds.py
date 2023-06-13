@@ -8,6 +8,12 @@ import neopixel
 import modeFunctions
 
 
+# PIXEL COLORS
+
+Black = (0, 0, 0)
+
+# END PIXEL COLORS
+
 # Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
 # NeoPixels must be connected to D10, D12, D18 or D21 to work.
 pixel_pin = board.D18
@@ -50,6 +56,8 @@ def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
             if modeFunctions.get_current_mode() != "toggleRacer":
+                pixels.fill(Black)
+                pixels.show()
                 break
             else:
                 pixel_index = (i * 256 // num_pixels) + j
@@ -62,7 +70,7 @@ def lights_server_link():
     while True:
         try:
             if modeFunctions.get_current_mode() == "toggleOFF":
-                pixels.fill((0, 0, 0))
+                pixels.fill(Black)
                 pixels.show()
             elif modeFunctions.get_current_mode() == "toggleRainbow":
                 print("toggleRainbow")
