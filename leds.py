@@ -49,8 +49,11 @@ def wheel(pos):
 def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
-            pixel_index = (i * 256 // num_pixels) + j
-            pixels[i] = wheel(pixel_index & 255)
+            if modeFunctions.get_current_mode() != "toggleRainbow":
+                break
+            else:
+                pixel_index = (i * 256 // num_pixels) + j
+                pixels[i] = wheel(pixel_index & 255)
         pixels.show()
         time.sleep(wait)
 
