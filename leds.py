@@ -49,13 +49,8 @@ def wheel(pos):
 def rainbow_cycle(wait):
     for j in range(255):
         for i in range(num_pixels):
-
-            if modeFunctions.get_current_mode() != "toggleRainbow":
-                pixels.fill((0, 0, 0))
-                pixels.show()
-            else:
-                pixel_index = (i * 256 // num_pixels) + j
-                pixels[i] = wheel(pixel_index & 255)
+            pixel_index = (i * 256 // num_pixels) + j
+            pixels[i] = wheel(pixel_index & 255)
         pixels.show()
         time.sleep(wait)
 
@@ -70,8 +65,7 @@ def lights_server_link():
                 print("toggleRainbow")
                 time.sleep(1)
             elif modeFunctions.get_current_mode() == "toggleRacer":
-                print("toggleRacer")
-                time.sleep(1)
+                rainbow_cycle(.01)
             elif modeFunctions.get_current_mode() == "toggleTimer60":
                 print("toggleTimer60")
                 time.sleep(1)
