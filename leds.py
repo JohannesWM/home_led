@@ -59,8 +59,7 @@ def lights_server_link():
     while True:
         try:
             if modeFunctions.get_current_mode() == "toggleOFF":
-                print("toggleOFF")
-                time.sleep(1)
+                pixels.fill((0, 0, 0))
             elif modeFunctions.get_current_mode() == "toggleRainbow":
                 print("toggleRainbow")
                 time.sleep(1)
