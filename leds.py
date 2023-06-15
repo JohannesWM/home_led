@@ -101,7 +101,7 @@ def racer(length=10, color=colors["Purple"], delay_time=0.001):
 def speed_racer(length=10, color=colors["Purple"], delay_time=0.01):
     current_length = 0
     for led in range(num_pixels):
-        delay_time -= 0.0001
+        delay_time -= 0.0002
 
         if modeFunctions.get_current_mode() != "toggleSpeedRacer":
             break
