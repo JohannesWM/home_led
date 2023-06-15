@@ -8,10 +8,10 @@ import neopixel
 import modeFunctions
 
 
-# PIXEL COLORS
+# PIXEL COLORS GBR format
 
 Black = (0, 0, 0)
-colors = {"Black": (0, 0, 0), "Purple": (160, 32, 240)}
+colors = {"Black": (0, 0, 0), "Purple": (32, 240, 160)}
 # END PIXEL COLORS
 
 # Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
