@@ -90,8 +90,7 @@ def lights_server_link():
             elif modeFunctions.get_current_mode() == "toggleRainbow":
                 rainbow_cycle(.001)
             elif modeFunctions.get_current_mode() == "toggleRacer":
-                print("toggleRacer")
-                time.sleep(1)
+                racer()
             elif modeFunctions.get_current_mode() == "toggleTimer60":
                 print("toggleTimer60")
                 time.sleep(1)
