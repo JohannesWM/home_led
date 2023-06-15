@@ -70,6 +70,9 @@ def racer(length=10, color=colors["Purple"], delay_time=0.001):
     current_length = 0
     for led in range(num_pixels):
 
+        if modeFunctions.get_current_mode() != "toggleRacer":
+            break
+
         if current_length < length:
             current_length += 1
             pixels[led] = color
@@ -86,7 +89,6 @@ def racer(length=10, color=colors["Purple"], delay_time=0.001):
 
             pixels[99] = colors["Black"]
             pixels.show()
-
 
         elif current_length == length:
             pixels[led] = color
