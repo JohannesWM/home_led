@@ -74,7 +74,7 @@ def racer(length=10, color=colors["Purple"], delay_time=0.001):
             current_length += 1
             pixels[led] = color
 
-        elif led == 99:
+        elif led == 100:
             for subled in range(current_length):
                 pixels[led - current_length + subled] = colors["Black"]
 
