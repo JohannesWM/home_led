@@ -84,6 +84,9 @@ def racer(length=10, color=colors["Purple"], delay_time=0.001):
                 pixels.show()
                 time.sleep(delay_time)
 
+            pixels[99] = colors["Black"]
+            pixels.show()
+
 
         elif current_length == length:
             pixels[led] = color
@@ -102,7 +105,7 @@ def lights_server_link():
             elif modeFunctions.get_current_mode() == "toggleRainbow":
                 rainbow_cycle(.001)
             elif modeFunctions.get_current_mode() == "toggleRacer":
-                racer()
+                racer(delay_time=0.1)
             elif modeFunctions.get_current_mode() == "toggleTimer60":
                 print("toggleTimer60")
                 time.sleep(1)
