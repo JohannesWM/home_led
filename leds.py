@@ -140,6 +140,7 @@ def blink(color=colors["Purple"], exetus=False):
         while pixels.brightness < 1 and (pixels.brightness + 0.1) <= 1:
 
             if modeFunctions.get_current_mode() != "toggleTimer60":
+                exetus = True
                 break
 
             pixels.brightness += 0.1
@@ -149,6 +150,7 @@ def blink(color=colors["Purple"], exetus=False):
         while pixels.brightness > 0 and (pixels.brightness - 0.1) >= 0:
 
             if modeFunctions.get_current_mode() != "toggleTimer60":
+                exetus = True
                 break
 
             pixels.brightness -= 0.1
