@@ -62,6 +62,11 @@ def rainbow_cycle(wait):
             else:
                 pixel_index = (i * 256 // num_pixels) + j
                 pixels[i] = wheel(pixel_index & 255)
+
+        if modeFunctions.get_current_mode() != "toggleRainbow":
+            pixels.fill(Black)
+            pixels.show()
+            break
         pixels.show()
         time.sleep(wait)
 
