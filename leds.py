@@ -11,7 +11,7 @@ import modeFunctions
 # PIXEL COLORS GBR format
 
 Black = (0, 0, 0)
-colors = {"Black": (0, 0, 0), "Purple": (32, 240, 160)}
+colors = {"Black": (0, 0, 0), "Purple": (32, 160, 240)}
 # END PIXEL COLORS
 
 # Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
@@ -131,6 +131,53 @@ def speed_racer(length=10, color=colors["Purple"], delay_time=0.01):
         time.sleep(delay_time)
 
 
+def blink(color=colors("Purple"), exetus=False):
+
+    pixels.fill(color)
+    pixels.show()
+
+    while not exetus:
+        while pixels.brightness < 1 and (pixels.brightness + 0.1) <= 1:
+
+            if modeFunctions.get_current_mode() != "toggleTimer60":
+                break
+
+            pixels.brightness += 0.1
+            pixels.fill(color)
+            pixels.show()
+            time.sleep(0.01)
+        while pixels.brightness > 0 and (pixels.brightness - 0.1) >= 0:
+
+            if modeFunctions.get_current_mode() != "toggleTimer60":
+                break
+
+            pixels.brightness -= 0.1
+            pixels.fill(color)
+            pixels.show()
+            time.sleep(0.01)
+
+
+def hour_leds(color=colors("Purple")):
+    start_time = time.time() / 60 / 60
+    exetus = False
+
+    while time.time() / 60 / 60 - start_time < .01:
+
+        if modeFunctions.get_current_mode() != "toggleTimer60":
+            exitus = True
+            break
+
+        hour_diff = time.time() / 60 / 60 - start_time
+        hour_diff_leds = (hour_diff * 100).__round__()
+
+        if hour_diff_leds <= num_pixels:
+            pixels[hour_diff_leds] = color
+            pixels.show()
+        else:
+            break
+
+    blink(color=color, exitus=exitus)
+
 def lights_server_link():
     while True:
         try:
@@ -142,8 +189,7 @@ def lights_server_link():
             elif modeFunctions.get_current_mode() == "toggleRacer":
                 racer()
             elif modeFunctions.get_current_mode() == "toggleTimer60":
-                print("toggleTimer60")
-                time.sleep(1)
+                blink()
             elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
                 speed_racer()
             else:

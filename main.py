@@ -16,7 +16,3 @@ if __name__ == '__main__':
 
     # Keyboard interrupt occurred, terminate the process
     ledFunc.terminate()
-
-
-
-
