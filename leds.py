@@ -183,7 +183,12 @@ def hour_leds(color=colors["Purple"]):
 
 def lights_server_link():
     while True:
+
         try:
+
+            if pixels.brightness != 0.2:
+                pixels.brightness = 0.2
+
             if modeFunctions.get_current_mode() == "toggleOFF":
                 pixels.fill(colors["Black"])
                 pixels.show()
