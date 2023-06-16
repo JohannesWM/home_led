@@ -202,7 +202,7 @@ def lights_server_link():
             elif modeFunctions.get_current_mode() == "toggleRacer":
                 racer()
             elif modeFunctions.get_current_mode() == "toggleTimer60":
-                blink()
+                hour_leds()
             elif modeFunctions.get_current_mode() == "toggleSpeedRacer":
                 speed_racer()
             else:
