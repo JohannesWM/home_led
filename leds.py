@@ -183,7 +183,10 @@ def hour_leds(color=colors["Purple"]):
         else:
             break
 
-    blink(color=color, exetus=exetus)
+    if exetus is False:
+        blink(color=color, exetus=exetus)
+    else:
+        pass
 
 
 def lights_server_link():
