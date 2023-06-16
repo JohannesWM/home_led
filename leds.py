@@ -175,7 +175,7 @@ def hour_leds(color=colors["Purple"]):
             break
 
         hour_diff = time.time() / 60 / 60 - start_time
-        hour_diff_leds = (hour_diff * 100).__round__()
+        hour_diff_leds = (hour_diff * 99).__round__()
 
         if hour_diff_leds <= num_pixels:
             pixels[hour_diff_leds] = color
