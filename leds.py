@@ -131,7 +131,7 @@ def speed_racer(length=10, color=colors["Purple"], delay_time=0.01):
         time.sleep(delay_time)
 
 
-def blink(color=colors("Purple"), exetus=False):
+def blink(color=colors["Purple"], exetus=False):
 
     pixels.fill(color)
     pixels.show()
@@ -157,14 +157,14 @@ def blink(color=colors("Purple"), exetus=False):
             time.sleep(0.01)
 
 
-def hour_leds(color=colors("Purple")):
+def hour_leds(color=colors["Purple"]):
     start_time = time.time() / 60 / 60
     exetus = False
 
     while time.time() / 60 / 60 - start_time < .01:
 
         if modeFunctions.get_current_mode() != "toggleTimer60":
-            exitus = True
+            exetus = True
             break
 
         hour_diff = time.time() / 60 / 60 - start_time
@@ -176,7 +176,8 @@ def hour_leds(color=colors("Purple")):
         else:
             break
 
-    blink(color=color, exitus=exitus)
+    blink(color=color, exetus=exetus)
+
 
 def lights_server_link():
     while True:
