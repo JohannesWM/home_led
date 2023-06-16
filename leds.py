@@ -168,7 +168,7 @@ def hour_leds(color=colors["Purple"]):
     start_time = time.time() / 60 / 60
     exetus = False
 
-    while time.time() / 60 / 60 - start_time < .01:
+    while time.time() / 60 / 60 - start_time < 1:
 
         if modeFunctions.get_current_mode() != "toggleTimer60":
             exetus = True
